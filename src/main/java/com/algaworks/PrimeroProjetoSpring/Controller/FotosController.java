@@ -12,7 +12,7 @@ import com.algaworks.PrimeroProjetoSpring.dto.Foto;
 @RestController
 @RequestMapping("/fotos")
 public class FotosController {
-	
+	//upload foto
 	@RequestMapping(value = "/{codigo}",method = RequestMethod.POST)
 	public Foto upload(@PathVariable Long codigo,
 			@RequestParam("files[]") MultipartFile[] files) {
