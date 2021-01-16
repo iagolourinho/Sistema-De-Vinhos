@@ -37,6 +37,9 @@ public class Vinho {
 	@NotNull(message = "Valor é obrigatoria")
 	private BigDecimal valor;
 	
+	private String foto;
+	
+	
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -73,6 +76,14 @@ public class Vinho {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+	
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

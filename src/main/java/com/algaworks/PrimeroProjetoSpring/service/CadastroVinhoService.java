@@ -17,4 +17,10 @@ public class CadastroVinhoService {
 		this.vinhos.save(vinho);
 		
 	}
+	
+	public void adicionarFoto(Long codigo,String nome) {
+		Vinho vinho = vinhos.findOne(codigo);
+		vinho.setFoto(nome);
+		vinhos.save(vinho);
+	}
 }

@@ -13,5 +13,5 @@ $(function() {
 	};
 	
 	UIkit.uploadSelect($('#upload-select'),settings);
-	UIkit.uploadDrop($('#upload-drop'),settings);
+	UIkit.uploadDrop(uploadDrop,settings);
 });
