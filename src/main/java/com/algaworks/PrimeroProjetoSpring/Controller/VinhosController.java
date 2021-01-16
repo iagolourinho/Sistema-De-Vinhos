@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import com.algaworks.PrimeroProjetoSpring.model.TipoVinho;
 import com.algaworks.PrimeroProjetoSpring.model.Vinho;
+import com.algaworks.PrimeroProjetoSpring.repository.FotoStorage;
 import com.algaworks.PrimeroProjetoSpring.repository.Vinhos;
 import com.algaworks.PrimeroProjetoSpring.service.CadastroVinhoService;
+import com.algaworks.PrimeroProjetoSpring.storage.FotoStorageS3;
 
 @Controller
 @RequestMapping("/vinhos")
@@ -29,6 +32,9 @@ public class VinhosController {
 	
 	@Autowired
 	private CadastroVinhoService cadastroVinhoService;
+	
+	@Autowired
+	private FotoStorage fotostorage;
 
 	@RequestMapping
 	public ModelAndView pesquisa() {
@@ -59,6 +65,12 @@ public class VinhosController {
 	public ModelAndView visualizar(@PathVariable("codigo") Vinho vinho) {
 		ModelAndView mv = new ModelAndView("/vinho/visualizacaoVinho");
 		//Vinho vinho = vinhos.findOne(codigo);
+		
+		if (vinho.temFoto()) {
+			vinho.setUrl(fotostorage.getUrl(vinho.getFoto()));
+		}
+		
+		
 		mv.addObject("vinho", vinho);
 		return mv;
 	}
