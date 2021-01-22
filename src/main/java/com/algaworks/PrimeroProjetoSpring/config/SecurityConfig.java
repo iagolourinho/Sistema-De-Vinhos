@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -12,7 +13,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-        .withUser("iago").password("iago").roles("");
+        .withUser("iago").password("iago").roles("CADASTRAR_VINHOS","LISTAR_VINHO")
+        .and()
+        .withUser("fatima").password("fatima").roles("CADASTRAR_VINHOS");
     }
 
     @Override
@@ -23,9 +26,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+            .antMatchers("/vinhos/novo").hasRole("CADASTRAR_VINHOS")
+            .antMatchers("/vinhos/**").hasRole("LISTAR_VINHO")
             .anyRequest().authenticated()
             .and()
-            .formLogin();
+            .formLogin()
+            .loginPage("/login")
+            .permitAll()
+            .and()
+            .logout()
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 
     }
     
