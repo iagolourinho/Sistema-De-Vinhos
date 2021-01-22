@@ -21,7 +21,7 @@ import com.algaworks.PrimeroProjetoSpring.model.Vinho;
 import com.algaworks.PrimeroProjetoSpring.repository.FotoStorage;
 import com.algaworks.PrimeroProjetoSpring.repository.Vinhos;
 import com.algaworks.PrimeroProjetoSpring.service.CadastroVinhoService;
-import com.algaworks.PrimeroProjetoSpring.storage.FotoStorageS3;
+
 
 @Controller
 @RequestMapping("/vinhos")
@@ -33,7 +33,7 @@ public class VinhosController {
 	@Autowired
 	private CadastroVinhoService cadastroVinhoService;
 	
-	@Autowired
+	@Autowired(required = false)
 	private FotoStorage fotostorage;
 
 	@RequestMapping

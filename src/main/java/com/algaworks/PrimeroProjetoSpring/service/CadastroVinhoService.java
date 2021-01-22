@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.algaworks.PrimeroProjetoSpring.model.Vinho;
 import com.algaworks.PrimeroProjetoSpring.repository.FotoStorage;
 import com.algaworks.PrimeroProjetoSpring.repository.Vinhos;
-import com.algaworks.PrimeroProjetoSpring.storage.FotoStorageS3;
+
 
 @Service
 public class CadastroVinhoService {

@@ -8,8 +8,8 @@ $(function() {
 		allow: '*.(jpg|jpeg|png)',
 		action: '/fotos/' + uploadDrop.data('codigo'),
 		complete: function(foto) {
-			console.log('...resposta: ',foto.nome);
-			upload-drop.addClass('hidden');
+			console.log('...resposta: ',foto.url);
+			uploadDrop.addClass('hidden');
 			containerFoto.prepend('<img src="' + foto.url + '" class="img-responsive" style="margin : auto"/>');
 		}
 	};

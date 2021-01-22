@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PrimeroProjetoSpringApplication<PrimeroProjetoSpring>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.algaworks.PrimeroProjetoSpring.PrimeroProjetoSpringApplication",
+            "projectName": "PrimeroProjetoSpring",
+            "args": ""
+        }
+    ]
+}

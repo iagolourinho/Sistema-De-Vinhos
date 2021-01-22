@@ -25,7 +25,7 @@ public class FotosController {
 	@RequestMapping(value = "/{codigo}",method = RequestMethod.POST)
 	public Foto upload(@PathVariable Long codigo,
 			@RequestParam("files[]") MultipartFile[] files) {
-		System.out.println(">>>>>> " +  files[0].getOriginalFilename());
+		//System.out.println(">>>>>> " +  files[0].getOriginalFilename());
 		String url = cadastroVinhoService.adicionarFoto(codigo, files[0]);
 		return new Foto(url);
 	}
